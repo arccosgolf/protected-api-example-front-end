@@ -23,11 +23,20 @@ but no guarantees.
 
 ### Running
 
-To run against production (where you will likely have credentials), run `yarn start`.
+To run against production (where you will likely have credentials), run `yarn start`. The application will then start
+up on port 8080.
 
 If you wish to run against our active development environment you can use `yarn run start:iqa`.
 
-## Repository Structure
+## Notes
+
+### IMPORTANT
+`client_secret` is used in this front-end repo **as a demonstration only.** In the real world, putting the client secret
+anywhere in your client-side code is a gigantic security hole which could lead to you being charged incorrectly. If a
+malicious actor finds your `client_id` and `client_secret`, there's nothing stopping them from having you pay the bill
+for their API usage!
+
+### Repository Structure
 
 ```text
 ├── README.md # This readme
