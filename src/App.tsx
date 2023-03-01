@@ -93,11 +93,11 @@ export const App: React.FC = () => {
     // function that allows us to revoke a users access, id, and refresh token (all within the same session). You
     // likely won't use this endpoint in production.
     const doRevokeToken = () => {
-        if (tokenResponseBody?.refresh_token) {
+        if (tokenResponseBody?.refresh_token && arccosUserId) {
             // noinspection JSIgnoredPromiseFromCall
             revokeRefreshToken({
                 client_id: CLIENT_ID,
-                token: tokenResponseBody.refresh_token,
+                arccos_user_id: arccosUserId,
             })
         }
     }

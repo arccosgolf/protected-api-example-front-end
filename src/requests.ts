@@ -10,13 +10,12 @@ type FetchAuthorizationCodeAccessTokenParams = {
 }
 
 const {
-    ID_PROVIDER_URL,
     API_URL,
 } = process.env
 
 export const fetchAuthorizationCodeAccessToken = async (params: FetchAuthorizationCodeAccessTokenParams): Promise<TokenResponseBody> => {
     const res = await window.fetch(
-        `${ID_PROVIDER_URL}/oauth2/token`,
+        `${API_URL}/oauth2/token`,
         {
             method: 'POST',
             headers: {
@@ -65,7 +64,7 @@ type FetchRefreshTokenAccessTokenParams = {
 
 export const fetchRefreshTokenAccessToken = async (params: FetchRefreshTokenAccessTokenParams): Promise<TokenResponseBody> => {
     const res = await window.fetch(
-        `${ID_PROVIDER_URL}/oauth2/token`,
+        `${API_URL}/oauth2/token`,
         {
             method: 'POST',
             headers: {
@@ -79,12 +78,13 @@ export const fetchRefreshTokenAccessToken = async (params: FetchRefreshTokenAcce
 
 type RevokeRefreshTokenParams = {
     client_id: string
-    token: string
+    token?: string
+    arccos_user_id?: string
 }
 
 export const revokeRefreshToken = async (params: RevokeRefreshTokenParams): Promise<void> => {
     await window.fetch(
-        `${ID_PROVIDER_URL}/oauth2/revoke`,
+        `${API_URL}/oauth2/revoke`,
         {
             method: 'POST',
             headers: {
