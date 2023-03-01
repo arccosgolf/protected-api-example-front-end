@@ -16,8 +16,7 @@ const {
     // uri where you would like to receive the user after they have authorized your application with us. This must be
     // configured in advance. We can support multiple redirect uris.
     REDIRECT_URI,
-    // if you were issued a client secret, it would be used here. client secrets aren't strictly required and only offer
-    // additional security in specific situations
+    // if you were issued a client secret, it would be used here. client secrets aren't strictly required, though often used.
     CLIENT_SECRET,
 } = process.env
 
@@ -133,9 +132,6 @@ export const App: React.FC = () => {
 
     const signInUrl = `${ID_PROVIDER_URL}/login?${queryStringify({
         client_id: CLIENT_ID,
-        // again, if you are set up with us as a client who has a secret, `client_secret` is required. Otherwise, it
-        // should be `undefined`.
-        client_secret: CLIENT_SECRET,
         redirect_uri: REDIRECT_URI,
         response_type: 'code',
         // all scopes you plan to use must be authorized up-front. If you request more scopes later using the refresh
