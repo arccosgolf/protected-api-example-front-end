@@ -96,6 +96,7 @@ export const App: React.FC = () => {
             // noinspection JSIgnoredPromiseFromCall
             revokeRefreshToken({
                 client_id: CLIENT_ID,
+                client_secret: CLIENT_SECRET,
                 arccos_user_id: arccosUserId,
             })
         }
@@ -113,6 +114,7 @@ export const App: React.FC = () => {
                 client_secret: CLIENT_SECRET,
                 code: authorizationCode,
                 redirect_uri: REDIRECT_URI,
+                state: 'my_state',
             })
                 .then(body => {
                     console.log(`access token response body:`, body)

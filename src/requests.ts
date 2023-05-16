@@ -7,6 +7,7 @@ type FetchAuthorizationCodeAccessTokenParams = {
     code: string
     redirect_uri: string
     client_secret?: string
+    state?: string
 }
 
 const {
@@ -60,6 +61,7 @@ type FetchRefreshTokenAccessTokenParams = {
     client_id: string
     refresh_token: string
     client_secret?: string
+    state: 'my_state',
 }
 
 export const fetchRefreshTokenAccessToken = async (params: FetchRefreshTokenAccessTokenParams): Promise<TokenResponseBody> => {
@@ -78,6 +80,7 @@ export const fetchRefreshTokenAccessToken = async (params: FetchRefreshTokenAcce
 
 type RevokeRefreshTokenParams = {
     client_id: string
+    client_secret?: string
     token?: string
     arccos_user_id?: string
 }
