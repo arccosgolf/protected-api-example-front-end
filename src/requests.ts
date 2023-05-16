@@ -61,7 +61,6 @@ type FetchRefreshTokenAccessTokenParams = {
     client_id: string
     refresh_token: string
     client_secret?: string
-    state: 'my_state',
 }
 
 export const fetchRefreshTokenAccessToken = async (params: FetchRefreshTokenAccessTokenParams): Promise<TokenResponseBody> => {
